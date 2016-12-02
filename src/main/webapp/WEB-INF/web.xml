@@ -1,0 +1,337 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+    <!-- demo 包中的servlet *********************begin-->
+    <!--<servlet>
+        <servlet-name>ServletDemo01</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.demo.ServletDemo01</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo01</servlet-name>
+        <url-pattern>/demo/servletDemo01</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletDemo02</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.demo.ServletDemo02</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo02</servlet-name>
+        <url-pattern>/demo/servletDemo02</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletDemo03</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.demo.ServletDemo03</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo03</servlet-name>
+        <url-pattern>/demo/servletDemo03</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletDemo04</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.demo.ServletDemo04</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo04</servlet-name>
+        <url-pattern>/demo/servletDemo04</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletDemo05</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.demo.ServletDemo05</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo05</servlet-name>
+        <url-pattern>/demo/servletDemo05</url-pattern>
+    </servlet-mapping>-->
+    <!-- demo 包中的servlet *********************end-->
+
+    <!-- servlet 包中的servlet *********************begin-->
+    <servlet>
+        <servlet-name>ServletDemo1</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.servlet.ServletDemo1</servlet-class>
+    </servlet>
+    <!--同一个Servlet可以被映射到多个URL上，
+    即多个<servlet-mapping>元素的<servlet-name>
+    子元素的设置值可以是同一个Servlet的注册名-->
+    <servlet-mapping>
+        <servlet-name>ServletDemo1</servlet-name>
+        <url-pattern>/servlet/servletDemo1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDemo1</servlet-name>
+        <url-pattern>/1.htm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDemo1</servlet-name>
+        <url-pattern>/2.jsp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDemo1</servlet-name>
+        <url-pattern>/3.php</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDemo1</servlet-name>
+        <url-pattern>/4.ASPX</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletDemo3</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.servlet.ServletDemo3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo3</servlet-name>
+        <url-pattern>/servlet/servletDemo3</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>servletConfigDemo1</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.servlet.ServletConfigDemo1</servlet-class>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>ahtl</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>123456</param-value>
+        </init-param>
+        <init-param>
+            <param-name>charset</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletConfigDemo1</servlet-name>
+        <url-pattern>/servlet/configDemo1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletContextDemo1</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.servlet.ServletContextDemo1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletContextDemo1</servlet-name>
+        <url-pattern>/servlet/contextDemo1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletContextDemo2</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.servlet.ServletContextDemo2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletContextDemo2</servlet-name>
+        <url-pattern>/servlet/contextDemo2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletContextDemo3</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.servlet.ServletContextDemo3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletContextDemo3</servlet-name>
+        <url-pattern>/servlet/contextDemo3</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ServletContextDemo4</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.servlet.ServletContextDemo4</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletContextDemo4</servlet-name>
+        <url-pattern>/servlet/contextDemo4</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ServletContextDemo5</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.servlet.ServletContextDemo5</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletContextDemo5</servlet-name>
+        <url-pattern>/servlet/contextDemo5</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ServletContextDemo6</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.servlet.ServletContextDemo6</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletContextDemo6</servlet-name>
+        <url-pattern>/servlet/contextDemo6</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ServletContextDemo7</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.servlet.ServletContextDemo7</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletContextDemo7</servlet-name>
+        <url-pattern>/servlet/contextDemo7</url-pattern>
+    </servlet-mapping>
+    <!-- servlet 包中的servlet *********************end-->
+
+    <!-- response 包中的servlet *********************begin-->
+    <servlet>
+        <servlet-name>ResponseDemo1</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.response.ResponseDemo1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResponseDemo1</servlet-name>
+        <url-pattern>/response/responseDemo1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ResponseDemo2</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.response.ResponseDemo2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResponseDemo2</servlet-name>
+        <url-pattern>/response/responseDemo2</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ResponseDemo3</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.response.ResponseDemo3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResponseDemo3</servlet-name>
+        <url-pattern>/response/responseDemo3</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ResponseDemo4</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.response.ResponseDemo4</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResponseDemo4</servlet-name>
+        <url-pattern>/response/responseDemo4</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ResponseDemo5</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.response.ResponseDemo5</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResponseDemo5</servlet-name>
+        <url-pattern>/response/responseDemo5</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DrawImage</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.response.DrawImage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DrawImage</servlet-name>
+        <url-pattern>/response/drawImage</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CheckServlet</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.response.CheckServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckServlet</servlet-name>
+        <url-pattern>/response/checkServlet</url-pattern>
+    </servlet-mapping>
+    <!-- response 包中的servlet *********************end-->
+    <!-- request 包中的servlet *********************begin-->
+    <servlet>
+        <servlet-name>RequestDemo1</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.request.RequestDemo1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDemo1</servlet-name>
+        <url-pattern>/request/RequestDemo1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RequestDemo2</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.request.RequestDemo2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDemo2</servlet-name>
+        <url-pattern>/request/RequestDemo2</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RequestDemo3</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.request.RequestDemo3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDemo3</servlet-name>
+        <url-pattern>/request/RequestDemo3</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RequestDemo4</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.request.RequestDemo4</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDemo4</servlet-name>
+        <url-pattern>/request/RequestDemo4</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RequestDemo5</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.request.RequestDemo5</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDemo5</servlet-name>
+        <url-pattern>/request/RequestDemo5</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RequestDemo6</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.request.RequestDemo6</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDemo6</servlet-name>
+        <url-pattern>/request/RequestDemo6</url-pattern>
+    </servlet-mapping>
+    <!-- request 包中的servlet *********************end-->
+
+    <!-- cookie 包中的servlet *********************begin-->
+    <servlet>
+        <servlet-name>CookieDemo1</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.cookie.CookieDemo1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookieDemo1</servlet-name>
+        <url-pattern>/cookie/cookieDemo1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CookieDemo2</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.cookie.CookieDemo2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookieDemo2</servlet-name>
+        <url-pattern>/cookie/cookieDemo2</url-pattern>
+    </servlet-mapping>
+    <!-- cookie 包中的servlet *********************end-->
+    <servlet>
+        <servlet-name>SessionDemo1</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.session.SessionDemo1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionDemo1</servlet-name>
+        <url-pattern>/session/sessionDemo1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TokenServlet</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.session.token.TokenServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TokenServlet</servlet-name>
+        <url-pattern>/session/tooken/tokenServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FormSubmitServlet</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.session.FormSubmitServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FormSubmitServlet</servlet-name>
+        <url-pattern>/session/formSubmitServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.yckjsoft.javaee.javabean.mvc.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/javabean/loginServlet</url-pattern>
+    </servlet-mapping>
+
+</web-app>

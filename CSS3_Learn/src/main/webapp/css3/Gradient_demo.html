@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3的线性渐变</title>
+
+    <style>
+        ul {
+            overflow: hidden;
+            margin-top: 20px;
+            /*list-style: none;*/
+        }
+
+        li {
+            width: 150px;
+            height: 80px;
+            margin-bottom: 10px;
+            float: left;
+            margin-right: 5px;
+            background: #ace;
+            /*Controls the size*/
+            -webkit-background-size: 20px 20px;
+            -moz-background-size: 20px 20px;
+            background-size: 20px 20px;
+            list-style: none;
+        }
+
+        li.gradient1 {
+            background-image: -webkit-gradient(
+                    linear,
+                    0 100%, 100% 0,
+                    color-stop(.25, rgba(255, 255, 255, .2)),
+                    color-stop(.25, transparent),
+                    color-stop(.5, transparent),
+                    color-stop(.5, rgba(255, 255, 255, .2)),
+                    color-stop(.75, rgba(255, 255, 255, .2)),
+                    color-stop(.75, transparent),
+                    to(transparent)
+            );
+            background-image: -moz-linear-gradient(
+                    45deg,
+                    rgba(255, 255, 255, .2) 25%,
+                    transparent 25%,
+                    transparent 50%,
+                    rgba(255, 255, 255, .2) 50%,
+                    rgba(255, 255, 255, .2) 75%,
+                    transparent 75%,
+                    transparent
+            );
+
+            background-image: linear-gradient(
+                    45deg,
+                    rgba(255, 255, 255, .2) 25%,
+                    transparent 25%,
+                    transparent 50%,
+                    gba(255, 255, 255, .2) 50%,
+                    rgba(255, 255, 255, .2) 75%,
+                    transparent 75%,
+                    transparent
+            );
+        }
+
+        li.gradient2 {
+            background-image: -webkit-gradient(linear, 0 0, 100% 100%,
+            color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
+            color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)),
+            color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent),
+            to(transparent));
+            background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+            transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+            transparent 75%, transparent);
+
+            background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+            transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+            transparent 75%, transparent);
+        }
+
+        li.gradient3 {
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
+            background-image: -moz-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+            background-image: linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+        }
+
+        li.gradient4 {
+            background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
+            background-image: -moz-linear-gradient(0deg, rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+            background-image: linear-gradient(0deg, rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+        }
+
+        li.gradient5 {
+            background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #555), color-stop(.25, transparent), to(transparent)),
+            -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #555), color-stop(.25, transparent), to(transparent)),
+            -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #555)),
+            -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #555));
+            background-image: -moz-linear-gradient(45deg, #555 25%, transparent 25%, transparent),
+            -moz-linear-gradient(-45deg, #555 25%, transparent 25%, transparent),
+            -moz-linear-gradient(45deg, transparent 75%, #555 75%),
+            -moz-linear-gradient(-45deg, transparent 75%, #555 75%);
+            background-image: linear-gradient(45deg, #555 25%, transparent 25%, transparent),
+            linear-gradient(-45deg, #555 25%, transparent 25%, transparent),
+            linear-gradient(45deg, transparent 75%, #555 75%),
+            linear-gradient(-45deg, transparent 75%, #555 75%);
+        }
+
+        li.gradient6 {
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, transparent), color-stop(.5, rgba(200, 0, 0, .5)), to(rgba(200, 0, 0, .5))),
+            -webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, transparent), color-stop(.5, rgba(200, 0, 0, .5)), to(rgba(200, 0, 0, .5)));
+            background-image: -moz-linear-gradient(transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5)),
+            -moz-linear-gradient(0deg, transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5));
+            background-image: linear-gradient(transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5)),
+            linear-gradient(0deg, transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5));
+        }
+
+        li.gradient7 {
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2d151f+0,592742+57&1+0,0+100 */
+            /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJkMTUxZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iIzU5Mjc0MiIgc3RvcC1vcGFjaXR5PSIwLjQzIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1OTI3NDIiIHN0b3Atb3BhY2l0eT0iMCIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+            background: -moz-linear-gradient(left, rgba(45, 21, 31, 1) 0%, rgba(89, 39, 66, 0.43) 57%, rgba(89, 39, 66, 0) 100%); /* FF3.6-15 */
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(45, 21, 31, 1)), color-stop(57%, rgba(89, 39, 66, 0.43)), color-stop(100%, rgba(89, 39, 66, 0))); /* Chrome4-9,Safari4-5 */
+            background: -webkit-linear-gradient(left, rgba(45, 21, 31, 1) 0%, rgba(89, 39, 66, 0.43) 57%, rgba(89, 39, 66, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: -o-linear-gradient(left, rgba(45, 21, 31, 1) 0%, rgba(89, 39, 66, 0.43) 57%, rgba(89, 39, 66, 0) 100%); /* Opera 11.10-11.50 */
+            background: -ms-linear-gradient(left, rgba(45, 21, 31, 1) 0%, rgba(89, 39, 66, 0.43) 57%, rgba(89, 39, 66, 0) 100%); /* IE10 preview */
+            background: linear-gradient(to right, rgba(45, 21, 31, 1) 0%, rgba(89, 39, 66, 0.43) 57%, rgba(89, 39, 66, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2d151f', endColorstr='#00592742', GradientType=1); /* IE6-8 */
+
+        }
+
+
+    </style>
+</head>
+<body>
+<ul>
+    <li class="gradient gradient1"></li>
+    <li class="gradient gradient2"></li>
+    <li class="gradient gradient3"></li>
+    <li class="gradient gradient4"></li>
+    <li class="gradient gradient5"></li>
+    <li class="gradient gradient6"></li>
+    <li class="gradient gradient7"></li>
+</ul>
+</body>
+</html>

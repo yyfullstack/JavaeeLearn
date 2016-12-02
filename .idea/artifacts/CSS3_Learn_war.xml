@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CSS3_Learn:war">
+    <output-path>$PROJECT_DIR$/CSS3_Learn/target</output-path>
+    <root id="archive" name="CSS3.war">
+      <element id="artifact" artifact-name="CSS3_Learn:war exploded" />
+    </root>
+  </artifact>
+</component>

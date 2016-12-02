@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3的线性渐变</title>
+    <!--
+    线性渐变在Mozilla下的应用:
+        -moz-linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* )
+    -->
+    <style>
+        .linear-demo01 {
+            background: -moz-linear-gradient(top, #ccc, #000);
+            /*background: -webkit-gradient(linear,center top,center bottom,from(#ccc), to(#000));*/
+            background: -webkit-linear-gradient(top, #ccc, #000);
+        }
+
+        /*1、开始于center（水平方向）和top（垂直方向）也就是Top → Bottom：*/
+        .linear-demo02 {
+            background: -moz-linear-gradient(top, #ace, #f96);
+            background: -webkit-linear-gradient(top, #ace, #f96);
+        }
+
+        /*2、始于left（水平方向）和center（垂直方向）也是就Left → Right：*/
+        .linear-demo03 {
+            background: -moz-linear-gradient(left, #ace, #f96);
+            background: -webkit-linear-gradient(left, #ace, #f96);
+        }
+
+        /*3、起始于left（水平方向）和top（垂直方向）:*/
+        .linear-demo04 {
+            background: -moz-linear-gradient(left top, #ace, #f96);
+            background: -webkit-linear-gradient(left top, #ace, #f96);
+        }
+
+        /*4、Linear Gradient (with Even Stops):*/
+        .linear-demo05 {
+            background: -moz-linear-gradient(left, #ace, #f96, #ace, #f96, #ace);
+            background: -webkit-linear-gradient(left, #ace, #f96, #ace, #f96, #ace);
+        }
+
+        /*5、with Specified Arbitrary Stops：*/
+        .linear-demo06 {
+            background: -moz-linear-gradient(left, #ace, #f96 5%, #ace, #f96 95%, #ace);
+            background: -webkit-linear-gradient(left, #ace, #f96 5%, #ace, #f96 95%, #ace);
+        }
+
+        /*7、角度(Angle)：*/
+        .linear-angle-none {
+            background: -moz-linear-gradient(left, #ace, #f96);
+            background: -webkit-linear-gradient(left, #ace, #f96);
+        }
+
+        /*8、加上30度的角度代码：*/
+        .linear-angle-30deg {
+            background: -moz-linear-gradient(30deg, #ace, #f96);
+            background: -webkit-linear-gradient(30deg, #ace, #f96);
+        }
+
+        .deg0 {
+            background: -moz-linear-gradient(0deg, #ace, #f96);
+            background: -webkit-linear-gradient(0deg, #ace, #f96);
+        }
+
+        .deg45 {
+            background: -moz-linear-gradient(45deg, #ace, #f96);
+            background: -webkit-linear-gradient(45deg, #ace, #f96);
+        }
+
+        .deg90 {
+            background: -moz-linear-gradient(90deg, #ace, #f96);
+            background: -webkit-linear-gradient(90deg, #ace, #f96);
+        }
+
+        .deg135 {
+            background: -moz-linear-gradient(135deg, #ace, #f96);
+            background: -webkit-linear-gradient(135deg, #ace, #f96);
+        }
+
+        .deg180 {
+            background: -moz-linear-gradient(180deg, #ace, #f96);
+            background: -webkit-linear-gradient(180deg, #ace, #f96);
+        }
+
+        .deg225 {
+            background: -moz-linear-gradient(225deg, #ace, #f96);
+            background: -webkit-linear-gradient(225deg, #ace, #f96);
+        }
+
+        .deg270 {
+            background: -moz-linear-gradient(270deg, #ace, #f96);
+            background: -webkit-linear-gradient(270deg, #ace, #f96);
+        }
+
+        .deg315 {
+            background: -moz-linear-gradient(315deg, #ace, #f96);
+            background: -webkit-linear-gradient(315deg, #ace, #f96);
+        }
+
+        .deg360 {
+            background: -moz-linear-gradient(360deg, #ace, #f96);
+            background: -webkit-linear-gradient(360deg, #ace, #f96);
+        }
+
+        /*9、如果没有指定位置，颜色会均匀分布：*/
+        .linear-demo07 {
+            background: -moz-linear-gradient(left, red, #f96, yellow, green, #ace);
+            background: -webkit-linear-gradient(left, red, #f96, yellow, green, #ace);
+        }
+
+        /*10、渐变上应用透明─透明度(Transparency)：*/
+        .linear-demo08 {
+            background: -moz-linear-gradient(right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url("../images/flower.jpg");
+            background: -webkit-linear-gradient(right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url("../images/flower.jpg");
+        }
+
+        /*径向梯度允许你指定渐变的形状（圆形或椭圆形）和大小（最近端，最近角，最远端，最远角，包含或覆 盖
+        (closest-side, closest-corner, farthest-side, farthest- corner, contain or cover)）。*/
+        /*颜色起止(Color stops)：就像用线性渐变，你应该沿着渐变线定义渐变的起止颜色。下面的圆具有相同的起止颜色，
+                         但在左边的为默认的颜色间隔均匀的渐变，而右边的每种颜色都有特定的位置。*/
+        /*1、颜色间隔均匀的渐变：*/
+        .radial-demo01 {
+            background: -moz-radial-gradient(#ace, #f96, #1E90FF);
+            background: -webkit-radial-gradient(#ace, #f96, #1E90FF);
+        }
+
+        /*2、每种颜色都有特定的位置*/
+        .radial-demo02 {
+            background: -moz-radial-gradient(#ace 5%, #f96 25%, #1E90FF 50%);
+            background: -webkit-radial-gradient(#ace 5%, #f96 25%, #1E90FF 50%);
+        }
+
+        /*形状(Shape)：在这里你可以看到两个可能的形状间的差异，一个圆（左侧）和椭圆（右侧）*/
+        /*3、设置其形状为circle*/
+        .radial-circle-demo03 {
+            background: -moz-radial-gradient(bottom left, circle, #ace, #f96, #1E90FF);
+            background: -webkit-radial-gradient(bottom left, circle, #ace, #f96, #1E90FF);
+        }
+
+        /*4、设置其形状为ellipse*/
+        .radial-ellipse-demo04 {
+            background: -moz-radial-gradient(bottom left, ellipse, #ace, #f96, #1E90FF);
+            background: -webkit-radial-gradient(bottom left, ellipse, #ace, #f96, #1E90FF);
+        }
+
+        /*大小(Size)：size的不同选项(closest-side, closest-corner, farthest-side, farthest-corner,
+                              contain or cover)指向被用来定义圆或椭圆大小的点。*/
+        /*椭圆的近边（closest-side）VS远角（farthest-corner）
+        下面的两个椭圆有不同的大小。左边的一个是由从起始点(center)到近边的距离设定的，
+                                         而右边的一个是由从起始点到远角的的距离决定的。*/
+        /*5、设置其应用了closest-side*/
+        .radial-demo05 {
+            background: -moz-radial-gradient(ellipse closest-side, #ace, #f96 10%, #1E90FF 50%, #f96);
+            background: -webkit-radial-gradient(ellipse closest-side, #ace, #f96 10%, #1E90FF 50%, #f96);
+        }
+
+        /*6、设置其应用了farthest-corner*/
+        .radial-demo06 {
+            background: -moz-radial-gradient(ellipse farthest-corner, #ace, #f96 10%, #1E90FF 50%, #f96);
+            background: -webkit-radial-gradient(ellipse farthest-corner, #ace, #f96 10%, #1E90FF 50%, #f96);
+        }
+
+        /*圆的近边VS远边
+        左边的圆的渐变大小由起始点(center)到近边的距离决定，而右边的圆则有起始点到远边的距离决定*/
+        /*7、设置其应用了closest-side*/
+        .radial-demo07 {
+            background: -moz-radial-gradient(circle closest-side, #ace, #f96 10%, #1E90FF 50%, #f96);
+            background: -webkit-radial-gradient(circle closest-side, #ace, #f96 10%, #1E90FF 50%, #f96);
+        }
+
+        /*8、设置其应用了farthest-corner*/
+        .radial-demo08 {
+            background: -moz-radial-gradient(circle farthest-side, #ace, #f96 10%, #1E90FF 50%, #f96);
+            background: -webkit-radial-gradient(circle farthest-side, #ace, #f96 10%, #1E90FF 50%, #f96);
+        }
+
+        /*包含圆
+        在这里你可以看到09的默认圈，同一渐变版本，但是被包含的10的圆。*/
+        /*9、默认圆*/
+        .radial-demo09 {
+            background: -moz-radial-gradient(#ace, #f96, #1E90FF);
+            background: -webkit-radial-gradient(#ace, #f96, #1E90FF);
+        }
+
+        /*10、被包含的圆*/
+        .radial-demo10 {
+            background: -moz-radial-gradient(contain, #ace, #f96, #1E90FF);
+            background: -webkit-radial-gradient(contain, #ace, #f96, #1E90FF);
+        }
+
+        /* 一个是应用了中心定位和full sized,*/
+        .radial-demo11 {
+            background: -moz-radial-gradient(circle, #ace, #f96);
+            background: -webkit-radial-gradient(circle, #ace, #f96);
+        }
+
+        /* -moz-radial-gradient( [ || ,]? [ || ,]? , [, ]* ) */
+        .radial-demo12 {
+            background: -moz-radial-gradient(80% 20%, closest-corner, #ace, #f96);
+            background: -webkit-radial-gradient(80% 20%, closest-corner, #ace, #f96);
+        }
+
+        .repeating-radial-demo01 {
+            background: -moz-repeating-radial-gradient(#ace, #ace 5px, #f96 5px, #f96 10px);
+            background: -webkit-repeating-radial-gradient(#ace, #ace 5px, #f96 5px, #f96 10px);
+        }
+
+        .repeating-radial-demo02 {
+            background: -moz-repeating-linear-gradient(120deg, #0092b7 0, black 1px, black .25em, #0092b7 calc(.25em + 1px), #0092b7 .75em);
+            background: -webkit-repeating-linear-gradient(120deg, #0092b7 0, black 1px, black .25em, #0092b7 calc(.25em + 1px), #0092b7 .75em);
+            background:repeating-linear-gradient(120deg, #0092b7 0, black 1px, black .25em, #0092b7 calc(.25em + 1px), #0092b7 .75em);
+        }
+
+        .example {
+            width: 150px;
+            height: 80px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="example repeating-radial-demo02 ">
+
+</div>
+</body>
+</html>
