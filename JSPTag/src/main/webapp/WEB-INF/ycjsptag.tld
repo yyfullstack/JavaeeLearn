@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" version="2.0">
+    <tlib-version>1.0</tlib-version>
+    <short-name>JSPTagLibrary</short-name>
+
+    <uri>/yctag</uri>
+    <tag>
+        <name>referer</name>
+        <!-- 标签对应的处理器类-->
+        <tag-class>com.jsptag.example.RefererTag</tag-class>
+        <body-content>empty</body-content>
+
+        <attribute>
+            <name>site</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>page</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>if</name>
+        <tag-class>com.jsptag.example.IFTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>test</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+
+    <tag>
+        <name>choose</name>
+        <tag-class>com.jsptag.example.ChooseTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <name>when</name>
+        <tag-class>com.jsptag.example.WhenTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>test</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>otherwise</name>
+        <tag-class>com.jsptag.example.OtherWiseTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <name>foreach</name>
+        <tag-class>com.jsptag.example.ForEachTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>items</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>foreach2</name>
+        <tag-class>com.jsptag.example.ForEachTag2</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>items</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>htmlEscape</name>
+        <tag-class>com.jsptag.example.HTMLEscapeTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <name>out</name>
+        <tag-class>com.jsptag.example.OutTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>content</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>escapeHtml</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

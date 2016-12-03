@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3属性：box-radius测试</title>
+</head>
+<style type="text/css">
+
+    div {
+        margin: 5px;
+    }
+
+    .demo {
+        width: 150px;
+        height: 80px;
+        border: 2px solid #f36;
+        border-radius: 10px 15px 20px 30px / 20px 30px 10px 15px;
+        background: #ccc;
+    }
+
+    /*border-radius只有一个取值时，四个角具有相同的圆角设置*/
+    .demo-01 {
+        width: 150px;
+        height: 80px;
+        border: 2px solid #f36;
+        border-radius: 20px;
+        background: #ccc;
+    }
+
+    /*border-radius设置两个值，此时top-left等于bottom-right并且他们取第一个值；top-right等于bottom-left并且他们取第二个值，
+    也就是说元素 左上角和右下角相同，右上角和左下角相同*/
+    .demo-02 {
+        width: 150px;
+        height: 80px;
+        border: 2px solid #f36;
+        border-radius: 10px 20px;
+        background: #ccc;
+    }
+
+    /* border-radius设置三个值，此时top-left取第一个值，top-right等于bottom-left并且他们取第二个值，
+     bottom-right取第三个值*/
+    .demo-03 {
+        width: 150px;
+        height: 80px;
+        border: 2px solid #f36;
+        border-radius: 10px 20px 30px;
+        background: #ccc;
+    }
+
+    /* border-radius设置四个值，此时top-left取第一个值，top-right取第二个值，
+     bottom-right取第三个值.bottom-left取第四个值*/
+    .demo-04 {
+        width: 150px;
+        height: 80px;
+        border: 2px solid #f36;
+        border-radius: 10px 20px 30px 40px;
+        background: #ccc;
+    }
+
+    /* 从上面四个实例中我们可以看出border-radius和border取值非常相似，我们border遵循TRBL原则（从上边右边下边左边分别对应1、2，3，4四个值），
+     只不过border-radius换成了左上角(top-left)对就值1，右上角（top-right）对应值2，右下角(bottom-right)对应值3，左下角(bottom-left)对应值4.*/
+
+    /*我们来看几个水平和垂直半径值不一样的实例：*/
+    /* border-radius: 水平 / 垂直：只设置一个水平和一个垂直半径时，那么水平半径分别指定了元素个四个角的水平半径值，
+                          同样垂直半径指定了元素的垂直半径值，此时四个角具有相同的效果，因为他们具有相同的值*/
+    .demo-05 {
+        width: 150px;
+        height: 80px;
+        border: 2px solid #f36;
+        border-radius: 10px / 20px;
+        background: #ccc;
+    }
+
+    /*border-radius: 水平1 水平2 / 垂直1  垂直2：设置了两个水平值和两个垂直值，此时我们top-left和bottom-right具有相同的水平和垂直半径，
+                             也就是其中的水平1和垂直1；而top-right和bottom-left也具有相同的水平和垂直半径值，也就是水平2和垂直2*/
+    .demo-06 {
+        width: 150px;
+        height: 80px;
+        border: 2px solid #f36;
+        background: #ccc;
+        border-radius: 10px 20px / 20px 10px;
+    }
+
+    .demo-07 {
+        width: 150px;
+        height: 80px;
+        border: 2px solid #f36;
+        background: #ccc;
+        border-radius: 10px 20px 30px / 50px 60px;
+    }
+
+    .border-big {
+        width: 150px;
+        height: 80px;
+        background: #ccc;
+        border: 15px solid green;
+        border-radius: 15px;
+    }
+
+    .border-small {
+        width: 150px;
+        height: 80px;
+        background: #ccc;
+        border: 15px solid green;
+        border-radius: 25px;
+    }
+
+    .demo-08 {
+        width: 150px;
+        height: 80px;
+        background: #ccc;
+        border: solid #f36;
+        border-width: 10px 5px 20px 3px;
+        border-radius: 30px;
+    }
+    .demo-09{
+        width: 150px;
+        height: 80px;
+        background: #ccc;
+        border-style: solid;
+        border-color: red green blue orange;
+        border-width: 15px 30px 30px 80px;
+        border-radius: 50px;
+    }
+    /*鸟嘴*/
+    .beak {
+        width: 45px;
+        height: 20px;
+        /* background: #ccc; */
+        border: solid #f36;
+        border-width: 15px 0px 0px 0px;
+        border-radius: 50px 0;
+    }
+
+    img{
+        border: 5px solid green;
+        border-radius: 15px;
+    }
+    /*另外table的样式属性border-collapse是collapse时,border-radius不能正常显示,只有border-collapse: separate;时才能正常显示。*/
+    table {
+        width: 150px;
+        height: 80px;
+        background: #ccc;
+        border-collapse: separate;
+        border: 2px solid red;
+        background: green;
+        border-radius: 15px;
+    }
+    /*我们从上面等价代码中可以知道，不管他们怎么取值，“/”前后各自按TRBL顺序取值。*/
+</style>
+<body>
+<div class="demo">demo</div>
+<div class="demo-01">demo-01</div>
+<div class="demo-02">demo-02</div>
+<div class="demo-03">demo-03</div>
+<div class="demo-04">demo-04</div>
+<div class="demo-05">demo-05</div>
+<div class="demo-06">demo-06</div>
+<div class="demo-07">demo-07</div>
+<div class="border-big ">border-big</div>
+<div class="border-small ">border-small</div>
+<div class="demo-08 ">demo-08</div>
+<div class="demo-09 ">demo-09</div>
+<div class="beak"></div>
+<img src="../images/flower.jpg">
+<table>
+    <tr>
+        <td>
+            测试
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS RGBA</title>
+    <!--
+         CSS2中Opacity能实现透明，而且大多主流浏览器都支持，虽然IE下有点麻烦
+        /* IE5 - 7 */
+        filter: alpha(opacity=80);
+        /* IE 8 */
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+        /* Everyone else */
+        opacity: 0.8;
+    -->
+    <style type="text/css">
+
+
+        /*在RGBA还没有出世前，我们都是使用opacity来做透明，但这里存在一个问题，就是我们在父元素中使用了opacity，
+        那么其后代元素都会受其影响，我想这个问题大家都有碰到过，为了解决这样的问题我们需要增加一个空的div来专门放置
+        使用透明的背景，然后通过使用绝对定位来实现我们需要的结果。为了更好的理解我们在这里来看一个使用opacity的实例*/
+        /*****------------------demo1-css-----------------------------
+        .bg-box {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #ccc;
+            background: red;
+            position: relative;
+        }
+
+        .bg {
+            background: black;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .bg p {
+            padding: 5px 10px;
+            color: white;
+        } */
+
+        /*****------------------demo2-css-----------------------------
+       .bg-box {
+           width: 200px;
+           height: 100px;
+           border: 1px solid #ccc;
+           background: red;
+           position: relative;
+       }
+
+       .bg {
+           background: black;
+           opacity: 0.5;
+           filter: alpha(opacity=50);
+           width: 100%;
+           height: 50px;
+           position: absolute;
+           bottom: 0;
+           left: 0;
+           z-index: 1;
+       }
+
+       .bg-content {
+           width: 100%;
+           height: 50px;
+           position: absolute;
+           bottom: 0;
+           left: 0;
+           z-index: 10;
+       }
+
+       .bg-content p {
+           padding: 5px 10px;
+           color: white;
+       }
+    */
+
+        /*****------------------demo3-css-----------------------------
+        .bg-box {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #ccc;
+            background: red;
+            position: relative;
+        }
+
+        .bg {
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            padding: 5px 10px;
+            color: white;
+        }
+        */
+        .bg-box {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #ccc;
+            background: red;
+            position: relative;
+        }
+
+        .bg-content {
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgb(0, 0, 0); /*The Fallback color*/
+            background: rgba(0, 0, 0, 0.5);
+            -ms-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#80000000,endColorstr=#80000000); /*Filter for IE8 */
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#80000000, endColorstr=#80000000); /*Filter for older IEs */
+        }
+
+        p {
+            padding: 5px 10px;
+            color: white;
+        }
+
+        /*我们rgba不单可以应用在background上，
+        我们还可以应用在只要设置了颜色的地方都可以使用*/
+       /* 前景色color*/
+        .norgba-color {
+            color: rgb(255, 0, 0);
+        }
+        .rgba-color {
+            color: rgb(255, 0, 0);
+            color: rgba(255, 0, 0,0.5);
+        }
+
+        /*边框色border-color*/
+        .norgba-border-color {
+            border:5px solid rgb(255,0,0);
+            width: 200px;
+        }
+        .rgba-border-color {
+            border:5px solid rgb(255,0,0);
+            border:5px solid rgba(255,0,0,0.5);
+            width: 200px;
+        }
+
+        /*字体的阴影色text-shadow*/
+        .norgba-text-shadow {
+            text-shadow : 0 2px 1px rgb(255,0,0);
+        }
+        .rgba-text-shadow {
+            text-shadow : 0 2px 1px rgb(255,0,0);
+            text-shadow : 0 2px 1px rgba(255,0,0,0.3);
+        }
+
+        /*改变边框阴影色*/
+        .norgba-box-shadow {
+            border: 5px solid green;
+            width: 200px;
+            -webkit-box-shadow: 0 2px 2px rgb(255,0,0);
+            -moz-box-shadow: 0 2px 2px rgb(255,0,0);
+            box-shadow: 0 2px 2px rgb(255,0,0);
+        }
+        .rgba-box-shadow {
+            border: 5px solid green;
+            width: 200px;
+            -webkit-box-shadow: 0 2px 2px rgba(255,0,0,0.6);
+            -moz-box-shadow: 0 2px 2px rgba(255,0,0,0.6);
+            box-shadow: 0 2px 2px rgba(255,0,0,0.6);
+        }
+
+
+    </style>
+</head>
+<body>
+<!--
+----------------demo1-html---------------------------
+<div class="bg-box">
+    <div class="bg">
+        <div class="bg-content">
+            <p>我是bg的后代元素，我不想我的前景有任何透明!怎么办?</p>
+        </div>
+    </div>
+</div>
+-->
+<!--这里和我们前面那个例子一样，名叫bg的div中设置了opacity，造成其后代元素段落P的前景色也随着变了。如果需要解决这样的问题，
+在不使用别的新技术下，也就是说坚持使用opacity.那么我们就需要添加一个空的层，在这个地方应用透明背景层首先来看看改变一下html 结构吧-->
+
+<!--
+----------------demo2-html---------------------------
+<div class="bg-box">
+    <div class="bg"></div>
+    <div class="bg-content">
+        <p>我是bg的后代元素，我不想我的前景有任何透明!怎么办?</p>
+    </div>
+</div>
+-->
+<!--
+----------------demo3-html---------------------------
+<div class="bg-box">
+    <div class="bg">
+        <p>我是bg的后代元素，我不想我的前景有任何透明!怎么办?</p>
+    </div>
+</div>
+-->
+
+<div class="bg-box">
+    <div class="bg-content">
+        <p>我是bg的后代元素，我不想我的前景有任何透明!怎么办?</p>
+    </div>
+</div>
+<!--可是这样弄就是有一点麻烦，现在CSS3的RGBA完全可以帮大家解决这样的问题了，接着我们在看一个用RGBA制作的效果吧，看看他是不是完全一样的-->
+
+<!--从效果的对比中我们可以明显的看出，和opacity做出的效果是完全一样的。但是这里有一个问题是我们讨厌的IE（除IE9以外）都不支持
+CSS3的RGBA属性。那么这样我们在IE下不是什么都没有吗？回答是肯定的，虽然IE不支持但我们不能什么都不给他呀，这样一来我们就碰
+到一个新名词"fallback color",它的意思是我给IE备份一个色，在不支持RGBA的情况下，我照样给他一个色，而对rgba支持的浏览器并
+不会带来影响，那我们一起看看这个fallback color怎么用吧。其实很简单，我们可以给其制作一张图片或都只给其加一个色，我们这些
+就只加一个色吧拿前面的实例来说吧，我们只要把bg-content的样式换一下-->
+
+<!--前景色color-->
+<p class="norgba-color">用rgba改变我的字体颜色</p>
+<p class="rgba-color">用rgba改变我的字体颜色</p>
+
+<!--边框色border-color-->
+<p class="norgba-border-color">用rgba改变我的边框颜色</p>
+<p class="rgba-border-color">用rgba改变我的边框颜色</p>
+
+<!--字体的阴影色text-shadow-->
+<p class="norgba-text-shadow">用rgba改变我的字体阴影颜色</p>
+<p class="rgba-text-shadow">用rgba改变我的字体阴影颜色</p>
+
+<!--改变边框阴影色-->
+<p class="norgba-box-shadow">用rgba改变我的边框阴影颜色</p>
+<p class="rgba-box-shadow">用rgba改变我的边框阴影颜色</p>
+</body>
+</html>

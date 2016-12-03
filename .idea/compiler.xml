@@ -23,12 +23,14 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="CSS3_Learn" />
+        <module name="JSPTag" />
         <module name="Login_MVC" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
       <module name="CSS3_Learn" target="1.5" />
       <module name="JavaeeLearn" target="1.5" />
+      <module name="JSPTag" target="1.5" />
       <module name="Login_MVC" target="1.5" />
     </bytecodeTargetLevel>
   </component>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3属性：box-shadow测试</title>
+</head>
+<style type="text/css">
+    /*从.box-shadow-1的效果可以得出不指定属性阴影颜色的情况下，阴影在webkit内核下的safari和chrome浏览器下表现为透明色，
+    在Firefox/Opera下表现为黑色*/
+    .box-shadow-1 {
+        -webkit-box-shadow: 3px 3px 3px;
+        -moz-box-shadow: 3px 3px 3px;
+        box-shadow: 3px 3px 3px;
+    }
+
+    /*从. box-shadow-2到. box-shadow-5的效果，我们可以了解到box-shadow取值的作用*/
+
+    /*    . box-shadow-2是xy没有偏移，阴影大小10px，没有扩展半径，
+        颜色#0CC即rgba(0, 204,204, 1)，这里我们使用的是颜色HEX值*/
+    .box-shadow-2 {
+        -webkit-box-shadow: 0 0 10px #0CC;
+        -moz-box-shadow: 0 0 10px #0CC;
+        box-shadow: 0 0 10px #0CC;
+    }
+
+    /*而. box-shadow-3是在. box-shadow-2效果的基础上，应用了rgba颜色值，
+    好处是给box-shadow阴影添加了alpha透明效果*/
+    .box-shadow-3 {
+        -webkit-box-shadow: 0 0 10px rgba(0, 204, 204, .5);
+        -moz-box-shadow: 0 0 10px rgba(0, 204, 204, .5);
+        box-shadow: 0 0 10px rgba(0, 204, 204, .5);
+    }
+
+    /*. box-shadow-4在. box-shadow-2效果的基础上添加了阴影扩展半径15px*/
+    .box-shadow-4 {
+        -webkit-box-shadow: 0 0 10px 15px #0CC;
+        -moz-box-shadow: 0 0 10px 15px #0CC;
+        box-shadow: 0 0 10px 15px #0CC;
+    }
+
+    /*. box-shadow-5在. box-shadow-2效果的基础上，将外阴影设为内阴影。*/
+    .box-shadow-5 {
+        -webkit-box-shadow: inset 0 0 10px #0CC;
+        -moz-box-shadow: inset 0 0 10px #0CC;
+        box-shadow: inset 0 0 10px #0CC;
+    }
+
+    /* . box-shadow-6一个元素使用了多个阴影，多个阴影之间用逗号分隔。给对象四边设置阴影效果，
+     我们是通过改变x-offset和y-offset的正负值来实现，其中x-offset为负值时，生成左边阴影，为正值时生成右边阴影，
+     y-offset为正值是生成底部阴影，为负值时生成顶部阴影。并且把模糊半径设置为0，
+     如果不设置为0的话那么其他三边也将会有阴影。这点需要注意！*/
+    .box-shadow-6 {
+        box-shadow: -10px 0 10px red, /*左边阴影*/ 10px 0 10px yellow, /*右边阴影*/ 0 -10px 10px blue, /*顶部阴影*/ 0 10px 10px green; /*底边阴影*/
+    }
+
+    .box-shadow-6-error {
+        /*box-shadow: -10px 0 10px red,
+        box-shadow: 10px 0 10px blue,
+        box-shadow: 0 -10px 10px yellow,
+        box-shadow: 0 10px 10px green,*/
+    }
+
+    /*当给同一个元素使用多个阴影属性时，需要注意它的顺序，最先写的阴影将显示在最顶层，如. box-shadow-7设为不同的模糊值：*/
+    .box-shadow-7 {
+        box-shadow: 0 0 10px 5px black,
+        0 0 10px 20px red;
+    }
+
+    /*将只显示红色的阴影效果，因为红色阴影层在上面，模糊半径大，将后面的黑色阴影完全遮挡。*/
+    /* 得出的结论是：如果前面的阴影模糊值小于后面的阴影模糊值，那么前面的显示在后面之上，
+     如果前面阴影的模糊值大于后面的阴影模糊值，那么前面的阴影将遮住后面的阴影效果。*/
+    .box-shadow-8 {
+        box-shadow: 0 0 10px 20px red,
+        0 0 10px 5px black;
+    }
+
+    /*类border边框效果（只设置阴影扩展半径和阴影颜色）
+    .box-shadow-9呈现的效果，同boder:1px solid red相似，但box-shadow的效果与border效果在对象高度上有区别，
+     正好要比border高度大一个扩展半径。而且阴影不影响页面的任何布局*/
+    .box-shadow-9 {
+        box-shadow: 0 0 0 1px red;
+    }
+
+    .obj {
+        width: 100px;
+        height: 100px;
+        margin: 50px auto;
+        background: #eee;
+    }
+
+    /*在ie下模拟css3中的box-shadow阴影效果
+   方法一：可以使用IE的Shadow滤镜
+   基本语法：filter:progid:DXImageTransform.Microsoft.Shadow(color=’颜色值’, Direction=阴影角度（数值）,Strength=阴影半径（数值）);
+   注意：该滤镜必须配合background属性一起使用，否则该滤镜失效。*/
+    .box-shadow-ie {
+        filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696', Direction=135, Strength=5); /*for ie6,7,8*/
+        background-color: #ccc;
+        -moz-box-shadow: 2px 2px 5px #969696; /*firefox*/
+        -webkit-box-shadow: 2px 2px 5px #969696; /*webkit*/
+        box-shadow: 2px 2px 5px #969696; /*opera或ie9*/
+    }
+
+</style>
+<body>
+<div class="obj  box-shadow-1">
+    box-shadow-1
+</div>
+<div class="obj  box-shadow-2">
+    box-shadow-2
+</div>
+<div class="obj  box-shadow-3">
+    box-shadow-3
+</div>
+<div class="obj  box-shadow-4">
+    box-shadow-4
+</div>
+<div class="obj  box-shadow-5">
+    box-shadow-5
+</div>
+<div class="obj  box-shadow-6">
+    box-shadow-6
+</div>
+<div class="obj  box-shadow-7">
+    box-shadow-7
+</div>
+<div class="obj  box-shadow-8">
+    box-shadow-8
+</div>
+<div class="obj  box-shadow-9">
+    box-shadow-9
+</div>
+
+<div class="obj  box-shadow-ie">
+    box-shadow-ie
+</div>
+</body>
+</html>

@@ -141,3 +141,82 @@
         则WEB容器首先计算表达式的值，然后把值传递给标签处理器对象。
    4. 如果简单标签有标签体，WEB容器将调用setJspBody方法把代表标签体的JspFragment对象传递进来。
    5. 执行标签时WEB容器调用标签处理器的doTag()方法，开发人员在方法体内通过操作JspFragment对象，就可以实现是否执行、迭代、修改标签体的目的。
+ ###简单标签开发的一些注意细节
+ 1、标签类编写细节
+    开发标签类时，不要直接去实现SimpleTag接口，而是应该继承SimpleTagSupport类，SimpleTagSupport类是SimpleTag接口的一个默认实现类，
+    通过继承SimpleTagSupport类，就可以直接使用SimpleTagSupport类已经实现的那些方法，如果SimpleTagSupport类的方法实现不满足业务要求，
+    那么就可以根据具体的业务情况将相应的方法进行重写。
+ 2、tld文件中标签体类型设置细节
+    我们开发好一个简单标签后，需要在tld文件中添加对该标签的描述，
+
+    开发好一个标签后，在tld文件中使用<tag>来描述一个标签，描述的内容包括标签名(name)，标签处理器类(tag-class)，标签体的内容(body-content)。
+    tld文件中有四种标签体(body-content)类型 ：empty、JSP、scriptless、tagdependent
+    简单标签标签体的细节注意问题：
+         在简单标签(SampleTag)中标签体body-content的值只允许是empty、scriptless、tagdependent，不允许设置成JSP,如果设置成JSP就会出现异常：
+    body-content的值如果设置成empty，那么就表示该标签没有标签体，如果是设置成scriptless，那么表示该标签是有标签体的，
+         但是标签体中的内容不可以是<%java代码%>，
+
+    jsp标签技术出现的目的就是为了移除在jsp页面上编写的java代码的，如果在jsp标签中允许出现java代码，那么就违背了jsp标签技术设计时的初衷了。所以在简单标签的标签体中是不允许出现java代码的。
+
+    传统标签标签体的细节注意问题：
+         在传统标签中标签体body-content的值允许是empty、JSP、scriptless、tagdependent，body-content的值如果是设置成JSP，那么表示该标签是有标签体的，
+         并且标签体的内容可以是任意的，包括java代码，如果是设置成scriptless，那么表示该标签是有标签体的，但是标签体的内容不能是java代码
+        如果传统标签和简单标签的标签体body-content的值设置成tagdependent，那么就表示标签体里面的内容是给标签处理器类使用的，
+    tagdependent用得比较少，了解一下即可
+ 3、tld文件中标签库的uri设置细节
+    如果在一个项目中使用或者开发了多个标签库, 那么标签库的uri不能设置成相同的，否则在Jsp页面中通过uri引用标签库时就不知道引用
+    哪一个标签库了，如果真的有那么巧，两个标签库的uri是刚好一样的,那么在jsp页面中引用标签库时如果"<%@taglib uri="/gacl" prefix="gacl" %>"这样引用，
+    那么就无法判断当前引用的标签库到底是gacl.tld标签库中的标签还是simpletag.tld标签库中的标签，因为两个标签库的uri刚好都是"/gacl"，
+    在两个标签库的引用uri一样的情况下，为了能够在jsp中区别到底引用的是哪个标签库，可以换一种引用方式：<%@taglib uri="要引用的标签库的tld文件目录" prefix="gacl"%>，
+    使用taglib指令引入标签库时，taglib指令的uri属性指定为标签库的tld文件目录，这样就可以区别开了
+
+    引用gacl.tld标签库：<%@taglib uri="/WEB-INF/gacl.tld" prefix="gacl"%>、
+    引用simpletag.tld标签库：<%@taglib uri="/WEB-INF/simpletag.tld" prefix="gacl"%>
+   所以当在项目中引用了多个标签库，如果标签库的uri刚好是一样的，就可以用这种方式解决。
+###简单标签开发步骤总结
+ 1、编写一个类继承SimpleTagSupport类，然后根据业务需要重写SimpleTagSupport类中已经实现了的方法，一般情况下只需要重写doTag()方法即可。
+ 2、在WEB-INF目录下创建一个tld文件，在tld文件中添加对该标签的描述。tld文件不一定放在WEB-INF目录下，也可以放在别的目录，习惯是放在WEB-INF目录下。
+
+ ###JspFragment类介绍
+    javax.servlet.jsp.tagext.JspFragment类是在JSP2.0中定义的，它的实例对象代表JSP页面中的一段符合JSP语法规范的JSP片段，
+    这段JSP片段中不能包含JSP脚本元素。
+    WEB容器在处理简单标签的标签体时，会把标签体内容用一个JspFragment对象表示，并调用标签处理器对象的setJspBody方法
+    把JspFragment对象传递给标签处理器对象。JspFragment类中只定义了两个方法，如下所示：
+    　　getJspContext方法 用于返回代表调用页面的JspContext对象.
+    public abstract void invoke(java.io.Writer out)
+    　　　　用于执行JspFragment对象所代表的JSP代码片段，参数out用于指定将JspFragment对象的执行结果写入到哪个输出流对象中，
+    如果 传递给参数out的值为null，则将执行结果写入到JspContext.getOut()方法返回的输出流对象中。(简而言之，可以理解为写给浏览器)
+
+  1. invoke方法详解
+  　　JspFragment.invoke方法是JspFragment最重要的方法，利用这个方法可以控制是否执行和输出标签体的内容、
+  是否迭代执行标签体的内容或对标签体的执行结果进行修改后再输出。例如：
+  　　在标签处理器中如果没有调用JspFragment.invoke方法，其结果就相当于忽略标签体内容；
+  　　在标签处理器中重复调用JspFragment.invoke方法，则标签体内容将会被重复执行；
+  　　若想在标签处理器中修改标签体内容，只需在调用invoke方法时指定一个可取出结果数据的输出流对象（例如StringWriter），
+  让标签体的执行结果输出到该输出流对象中，然后从该输出流对象中取出数据进行修改后再输出到目标设备，即可达到修改标签体的目的。
+
+###开发带属性的标签
+   自定义标签可以定义一个或多个属性，这样，在JSP页面中应用自定义标签时就可以设置这些属性的值，通过这些属性为标签处理器传递参数信息，
+   从而提高标签的灵活性和复用性。要想让一个自定义标签具有属性，通常需要完成两个任务：
+   在标签处理器中编写每个属性对应的setter方法
+   在TLD文件中描术标签的属性
+   　　为自定义标签定义属性时，每个属性都必须按照JavaBean的属性命名方式，在标签处理器中定义属性名对应的setter方法，
+   用来接收 JSP页面调用自定义标签时传递进来的属性值。 例如属性url，在标签处理器类中就要定义相应的setUrl(String url)方法。
+   　　在标签处理器中定义相应的set方法后，JSP引擎在解析执行开始标签前，也就是调用doStartTag方法前，会调用set属性方法，为标签设置属性。
+
+   1、tld文件中用于描述标签属性的<attribute>元素说明
+   　　<tag>元素的<attribute>子元素用于描述自定义标签的一个属性，自定义标签所具有的每个属性都要对应一个<attribute>元素
+
+   <attribute>元素的子元素说明：
+    name: 必填项，用于指定属性的名称，属性名称是大小写敏感的，并且不能以jsp,_jsp,java 和孙开头
+    required: 不是必填，用于指定在jsp页面中调用自定义标签时，是否必须设置这个属性，其取值包括true和false，默认值为false，
+        true表示必须设置，否则可以设置也可以不设置该属性
+    rtexprvalue:不是必填,rtexprvalue是runtime expression value(运行时表达式)的英文简写，用于指定属性值是一个静态值或动态值。
+        其取值包括true和false，默认值为false，false表示只能为该属性指定静态文本值，true表示可以为该属性指定一个jsp动态元素，
+        动态元素的结果作为属性值， 例如JSP表达式<%=value%>
+
+   2.　　<c:when>标签和<c:otherwise>标签对应着两个不同的标签处理器类，我们希望做到的效果是，如果<c:when>标签执行了，
+   那么就<c:otherwise>标签就不要再执行，那么这里面就涉及到一个问题：<c:when>标签执行的时候该如何通知<c:otherwise>标签不要执行了呢？
+   这个问题就涉及到了两个标签处理器类如何做到相互通讯的问题，如果<c:when>标签执行了，就要通过某种方式告诉<c:otherwise>标签不要执行，
+   那么该如何做到这样的效果呢？让<c:when>标签处理器类和<c:otherwise>标签处理器类共享同一个变量就可以做到了，那么又该怎么做
+   才能够让两个标签处理器类共享同一个变量呢，标准的做法是这样的：让两个标签拥有同一个父标签。

@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="Web">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src/main/resources" />
+        </sourceRoots>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:jsp-api:2.0" level="project" />
+    <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
+  </component>
   <component name="org.twodividedbyzero.idea.findbugs">
-    <option name="annotationTypeSettings">
-      <map>
-        <entry key="ExpPriority" value="-16777216;-1;-8355712;WAVE_UNDERSCORE;0;" />
-        <entry key="HighPriority" value="-65536;-1;-65536;WAVE_UNDERSCORE;1;" />
-        <entry key="IgnorePriority" value="-16777216;-1;-8650628;WAVE_UNDERSCORE;0;" />
-        <entry key="LowPriority" value="-16777216;-1;-16711936;BOXED;0;" />
-        <entry key="NormalPriority" value="-16777216;-1;-5066240;WAVE_UNDERSCORE;2;" />
-      </map>
-    </option>
     <option name="_basePreferences">
       <map>
         <entry key="property.analysisEffortLevel" value="default" />
@@ -26,7 +47,6 @@
         <entry key="property.minPriorityToReport" value="Medium" />
         <entry key="property.runAnalysisInBackground" value="false" />
         <entry key="property.showHiddenDetectors" value="false" />
-        <entry key="property.toolWindowEditorPreview" value="false" />
         <entry key="property.toolWindowToFront" value="true" />
       </map>
     </option>
@@ -214,14 +234,5 @@
         <entry key="STYLE" value="true" />
       </map>
     </option>
-    <option name="_annotationTypeSettings">
-      <map>
-        <entry key="ExpPriority" value="-16777216;-1;-8355712;WAVE_UNDERSCORE;0;" />
-        <entry key="HighPriority" value="-65536;-1;-65536;WAVE_UNDERSCORE;1;" />
-        <entry key="IgnorePriority" value="-16777216;-1;-8650628;WAVE_UNDERSCORE;0;" />
-        <entry key="LowPriority" value="-16777216;-1;-16711936;BOXED;0;" />
-        <entry key="NormalPriority" value="-16777216;-1;-5066240;WAVE_UNDERSCORE;2;" />
-      </map>
-    </option>
   </component>
-</project>
+</module>

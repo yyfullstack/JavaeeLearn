@@ -77,4 +77,54 @@
         <!-- 标签体允许的内容 ，scriptless表示标签体的内容不允许是java脚本代码-->
         <body-content>scriptless</body-content>
     </tag>
+
+    <tag>
+        <name>simpleTagDemo3</name>
+        <!-- 标签对应的处理器类-->
+        <tag-class>com.yckjsoft.javaee.customtag.SimpleTagDemo3</tag-class>
+        <!-- 标签体允许的内容 ，scriptless表示标签体的内容不允许是java脚本代码-->
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <name>simpleTagDemo4</name>
+        <!-- 标签对应的处理器类-->
+        <tag-class>com.yckjsoft.javaee.customtag.SimpleTagDemo4</tag-class>
+        <!-- 标签体允许的内容 ，empty表示该标签没有标签体-->
+        <body-content>empty</body-content>
+    </tag>
+
+    <tag>
+        <name>simpleTagDemo5</name>
+        <!-- 标签对应的处理器类-->
+        <tag-class>com.yckjsoft.javaee.customtag.SimpleTagDemo5</tag-class>
+        <!-- 标签体允许的内容 ，scriptless表示标签体的内容不允许是java脚本代码-->
+        <body-content>scriptless</body-content>
+        <!-- 标签的属性描述 -->
+        <attribute>
+            <!-- 标签的count属性 -->
+            <name>count</name>
+            <required>true</required>
+            <!-- rtexprvalue用来指示标签的属性值是否可以是一个表达式，
+             一般设置为true,true就表示允许标签的属性值可以是一个表达式-->
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>simpleTagDemo6</name>
+        <!-- 标签对应的处理器类-->
+        <tag-class>com.yckjsoft.javaee.customtag.SimpleTagDemo6</tag-class>
+        <!-- 标签体允许的内容 ，empty表示该标签没有标签体-->
+        <body-content>empty</body-content>
+        <!-- 标签的属性描述 -->
+        <attribute>
+            <!-- 标签的date属性 -->
+            <name>date</name>
+            <required>true</required>
+            <!-- rtexprvalue用来指示标签的属性值是否可以是一个表达式，
+             一般设置为true,true就表示允许标签的属性值可以是一个表达式-->
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 </taglib>

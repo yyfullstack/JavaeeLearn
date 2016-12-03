@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="jsptag">
+    <output-path>$PROJECT_DIR$/out/artifacts/jsptag</output-path>
+    <root id="archive" name="jsptag.jar">
+      <element id="module-output" name="JSPTag" />
+      <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+    </root>
+  </artifact>
+</component>

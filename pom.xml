@@ -8,6 +8,7 @@
     <modules>
         <module>Login_MVC</module>
         <module>CSS3_Learn</module>
+        <module>JSPTag</module>
     </modules>
     <name>JavaeeLearn Maven Webapp</name>
     <url>http://maven.apache.org</url>

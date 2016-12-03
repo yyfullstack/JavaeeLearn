@@ -1,0 +1,9 @@
+（1）URL为资源的路径，当引用的资源不存在时系统会抛出异常，因此该语句应该放在<c:catch></c:catch>语句块中捕获。
+（2）引用资源有两种方式：绝对路径和相对路径。
+    使用绝对路径的示例如下：<c:import url=”http://www.baidu.com”>
+    使用相对路径的示例如下：<c:import url=”aa.txt”>，aa.txt放在同一文件目录。
+（3）如果以“/”开头表示应用的根目录下。例如：tomcat应用程序的根目录文件夹为webapps。导入webapps下的文件bb.txt的编写方式为：<c:import url=”/bb.txt”>
+    如果访问webapps管理文件夹中其他web应用就要用context属性。
+（4）context属性用于在访问其他web应用的文件时，指定根目录。例如，访问root下的index.jsp的实现代码为：<c:import url=”/index.jsp” context=”/root”>
+    等同于webapps/root/index.jsp
+（5）var、scope、charEncoding、varReader是可选属性。
