@@ -27,9 +27,9 @@ public class WhenTag extends SimpleTagSupport {
     }
 
     /**
-     * Setter for property 'test'.
+     * Setter for property 'demo01'.
      *
-     * @param test Value to set for property 'test'.
+     * @param test Value to set for property 'demo01'.
      */
     public void setTest(boolean test) {
         this.test = test;

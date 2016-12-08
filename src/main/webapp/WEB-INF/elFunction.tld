@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" version="2.0">
+    <tlib-version>1.0</tlib-version>
+    <short-name>EL Function</short-name>
+    <uri>/ELFunction</uri>
+
+    <function>
+        <name>filter</name>
+        <function-class>com.yckjsoft.javaee.el.HtmlFilter</function-class>
+        <!--<function-signature>子元素用于指定Java类中的静态方法的签名，
+             方法签名必须指明方法的返回值类型及各个参数的类型，各个参数之间用逗号分隔。-->
+        <function-signature>java.lang.String filter(java.lang.String)</function-signature>
+    </function>
+</taglib>

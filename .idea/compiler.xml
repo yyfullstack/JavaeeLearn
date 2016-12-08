@@ -23,6 +23,8 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="CSS3_Learn" />
+        <module name="jdbc_study" />
+        <module name="JDBC_Study" />
         <module name="JSPTag" />
         <module name="Login_MVC" />
       </profile>
@@ -30,6 +32,7 @@
     <bytecodeTargetLevel target="1.7">
       <module name="CSS3_Learn" target="1.5" />
       <module name="JavaeeLearn" target="1.5" />
+      <module name="JDBC_Study" target="1.5" />
       <module name="JSPTag" target="1.5" />
       <module name="Login_MVC" target="1.5" />
     </bytecodeTargetLevel>

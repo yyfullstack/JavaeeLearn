@@ -23,7 +23,7 @@ public class RequestDemo6 extends HttpServlet {
          */
         req.setAttribute("data", data);
         //客户端访问RequestDemo06这个Servlet后，RequestDemo06通知服务器将请求转发(forward)到test.jsp页面进行处理
-        req.getRequestDispatcher("/demo/request/test.jsp").forward(req, resp);
+        req.getRequestDispatcher("/demo/request/demo01.jsp").forward(req, resp);
 
         //System.out.println("少时诵诗书");
     }
