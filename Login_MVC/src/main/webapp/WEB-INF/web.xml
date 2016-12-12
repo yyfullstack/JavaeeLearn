@@ -9,13 +9,22 @@
         <filter-name>CharacterEncodingFilter</filter-name>
         <filter-class>com.login.web.filter.CharacterEncodingFilter</filter-class>
         <init-param>
-            <param-name>charset</param-name>
+            <param-name>encoding</param-name>
             <param-value>UTF-8</param-value>
         </init-param>
     </filter>
     <filter-mapping>
         <filter-name>CharacterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>AutoLoginFilter</filter-name>
+        <filter-class>com.login.web.filter.AutoLoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AutoLoginFilter</filter-name>
+        <url-pattern>/pages/login.jsp</url-pattern>
     </filter-mapping>
 
     <servlet>

@@ -51,7 +51,7 @@ public class RegisterServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             req.setAttribute("message", "对不起，注册失败！！");
-            req.getRequestDispatcher("/pages/message.jsp").forward(req, resp);
+            req.getRequestDispatcher("/message.jsp").forward(req, resp);
         }
     }
 

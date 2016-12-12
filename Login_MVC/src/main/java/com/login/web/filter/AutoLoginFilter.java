@@ -15,6 +15,11 @@ import java.io.IOException;
 
 /**
  * Created by yong on 2016/11/23 0023.
+ * 实现用户自动登陆:
+ * 思路是这样的：
+ 　　1、在用户登陆成功后，发送一个名称为user的cookie给客户端，cookie的值为用户名和md5加密后的密码。
+ 　　2、编写一个AutoLoginFilter，这个filter检查用户是否带有名称为user的cookie来，如果有，则调用dao查询cookie的用户名
+ 和密码是否和数据库匹配，匹配则向session中存入user对象（即用户登陆标记），以实现程序完成自动登陆。
  */
 public class AutoLoginFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
