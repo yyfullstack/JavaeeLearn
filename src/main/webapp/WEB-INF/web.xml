@@ -462,7 +462,7 @@
     </filter>
     <filter-mapping>
         <filter-name>NoCacheFilter</filter-name>
-        <url-pattern>.jsp</url-pattern>
+        <url-pattern>*.jsp</url-pattern>
     </filter-mapping>
 
 
@@ -513,10 +513,10 @@
     <!--注解处理过滤器, 配置要扫描包及其子包, 如果有多个包,以逗号分隔-->
     <filter>
         <filter-name>AnnotationHandleFilter</filter-name>
-        <filter-class>com.yckjsoft.javaee.servlet3.virtual.AnnotationHandleFilter</filter-class>
+        <filter-class>com.yckjsoft.javaee.servlet3.demo.AnnotationHandleFilter</filter-class>
         <init-param>
             <param-name>basePackage</param-name>
-            <param-value>com.yckjsoft.javaee.servlet3.controller,com.yckjsoft.javaee.servlet3.web.UI</param-value>
+            <param-value>com.yckjsoft.javaee.servlet3.demo.controller,com.yckjsoft.javaee.servlet3.demo.web.UI</param-value>
             <!-- <param-value>me.gacl.web.controller</param-value> -->
         </init-param>
     </filter>

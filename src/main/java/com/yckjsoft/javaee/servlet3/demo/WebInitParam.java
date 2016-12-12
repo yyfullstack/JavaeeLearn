@@ -1,4 +1,4 @@
-package com.yckjsoft.javaee.servlet3.virtual;
+package com.yckjsoft.javaee.servlet3.demo;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

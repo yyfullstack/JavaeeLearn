@@ -10,7 +10,13 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/doc/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/MySpringMvc/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="PDMPlugin">

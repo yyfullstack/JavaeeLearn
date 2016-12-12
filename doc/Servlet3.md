@@ -19,4 +19,22 @@
        上面简要地介绍了注解的定义声明与使用方式，注解在后台需要一个处理器才能起作用，所以还得针对上面的注解编写处理器，
        在这里我们使用Filter作为注解的处理器，编写一个AnnotationHandleFilter
        AnnotationHandleFilter过滤器初始化时扫描指定的包下面使用了WebServlet注解的那些类，然后将类存储到一个Map集合中，
-       再将Map集合存储到servletContext对象中
+       再将Map集合存储到servletContext对象中,在web.xml文件中配置AnnotationHandleFilter过滤器和需要扫描的包.
+   3. WebServlet注解简单测试
+       编写一个用于跳转到Login.jsp页面的LoginUIServlet，LoginUIServlet就是一个普通的java类，不是一个真正的Servlet，
+      然后使用WebServlet注解标注LoginUIServlet,类在浏览器中输入访问地址：http://localhost:8080/servlet/LoginUI.do，
+
+      根据web.xml文件的配置，所有后缀名为 .do请求，都会经过AnnotationHandleFilter过滤器的doFilter方法，在doFilter方法的实现代码中，
+      从HttpServletRequest请求对象中得到请求的方式类型(GET/POST)和请求的URI 。如有请求http://localhost:8080/servlet/LoginUI.do
+      此时请求方法类型为GET， URI 值为/AnnotationConfigServlet/servlet/LoginUI.do。从ServletConext对象中获取到在过滤器中保存的Map结构，
+      根据 URI 获得一个 Key=”/servlet/LoginUI” ，从 Map 结构中根据此Key得到Value ，此时Value就是要请求调用的那个Servlet类，
+      根据Servlet类创建对象实例，再根据前面得到的请求方法类型，能决定调用此Servlet对象实例的 doGet 或 doPost 方法。
+      最终客户端发生的后缀为.do请求，经由AnnotationHandleFilter对请求对象(HttpServletRequest)的分析，
+      从而调用相应某Servlet的doGet或doPost方法，完成了一次客户端请求到服务器响应的过程。
+    4. WebServlet注解复杂测试
+       form表单中的action属性的URL="${pageContext.request.contextPath}/servlet/LoginServlet!loginHandle.do"，
+       /servlet/LoginServlet表示要访问的是LoginServlet，!后面的loginHandle表示要调用LoginServlet中的loginHandle方法处理此次的请求，
+       也就是说，我们在访问Servlet时，可以在URL中指明要访问Servlet的哪个方法，AnnotationHandleFilter过滤器的doFilter方法
+       在拦截到用户的请求之后，首先获取用户要访问的URI，根据URI判断用户要访问的Servlet，然后再判断URI中是否包含了"!"，
+       如果有，那么就说明用户显示指明了要访问Servlet的哪个方法，遍历Servlet类中定义的所有方法，如果找到了URI中的那个方法，
+       那么就调用对应的方法处理用户请求！
