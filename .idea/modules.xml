@@ -7,8 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/JSPTag/JSPTag.iml" filepath="$PROJECT_DIR$/JSPTag/JSPTag.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaeeLearn.iml" filepath="$PROJECT_DIR$/JavaeeLearn.iml" />
       <module fileurl="file://$PROJECT_DIR$/Login_MVC/Login_MVC.iml" filepath="$PROJECT_DIR$/Login_MVC/Login_MVC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/doc/MySpringMVC.iml" filepath="$PROJECT_DIR$/doc/MySpringMVC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/doc/My_SpringMVC.iml" filepath="$PROJECT_DIR$/doc/My_SpringMVC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YcMVC/YcMVC.iml" filepath="$PROJECT_DIR$/YcMVC/YcMVC.iml" />
     </modules>
   </component>
 </project>

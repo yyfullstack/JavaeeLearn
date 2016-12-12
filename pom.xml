@@ -11,6 +11,7 @@
         <module>JSPTag</module>
         <module>jdbc_study</module>
         <module>MySpringMvc</module>
+        <module>YcMVC</module>
     </modules>
     <name>JavaeeLearn Maven Webapp</name>
     <url>http://maven.apache.org</url>

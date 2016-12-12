@@ -27,8 +27,7 @@
         <module name="jdbc_study" />
         <module name="JSPTag" />
         <module name="Login_MVC" />
-        <module name="My_SpringMVC" />
-        <module name="MySpringMVC" />
+        <module name="YcMVC" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
@@ -39,6 +38,7 @@
       <module name="Login_MVC" target="1.5" />
       <module name="My_SpringMVC" target="1.5" />
       <module name="MySpringMVC" target="1.5" />
+      <module name="YcMVC" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
