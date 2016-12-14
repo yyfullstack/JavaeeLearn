@@ -15,6 +15,8 @@
         <module><![CDATA[FileU&D]]></module>
         <module>FileUploadAndDownload</module>
         <module>SendMail</module>
+        <module>SendEmail</module>
+        <module>MyJavaMail</module>
     </modules>
     <name>JavaeeLearn Maven Webapp</name>
     <url>http://maven.apache.org</url>

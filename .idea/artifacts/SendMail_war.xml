@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="SendMail:war">
-    <output-path>$PROJECT_DIR$/SendMail/target</output-path>
-    <root id="archive" name="SendMail.war">
-      <element id="artifact" artifact-name="SendMail:war exploded" />
-    </root>
-  </artifact>
-</component>

@@ -28,6 +28,7 @@
         <module name="jdbc_study" />
         <module name="JSPTag" />
         <module name="Login_MVC" />
+        <module name="MyJavaMail" />
         <module name="SendMail" />
         <module name="YcMVC" />
       </profile>
@@ -40,7 +41,9 @@
       <module name="JSPTag" target="1.5" />
       <module name="Login_MVC" target="1.5" />
       <module name="My_SpringMVC" target="1.5" />
+      <module name="MyJavaMail" target="1.5" />
       <module name="MySpringMVC" target="1.5" />
+      <module name="SendEmail" target="1.5" />
       <module name="SendMail" target="1.5" />
       <module name="YcMVC" target="1.5" />
     </bytecodeTargetLevel>

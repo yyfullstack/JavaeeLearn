@@ -7,19 +7,29 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.yckjsoft.javaee</groupId>
-    <artifactId>SendMail</artifactId>
+    <artifactId>MyJavaMail</artifactId>
     <packaging>war</packaging>
-    <name>SendMail Maven Webapp</name>
+    <name>MyJavaMail Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.12</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
         </dependency>
     </dependencies>
     <build>
-        <finalName>SendMail</finalName>
+        <finalName>MyJavaMail</finalName>
     </build>
 </project>
