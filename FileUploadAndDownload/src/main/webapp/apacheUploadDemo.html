@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Apache common实现基本文件上传</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="js/jquery/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.form.js"></script>
+	<script type="text/javascript">
+
+	//定时器对象
+	var uploadProcessTimer = null;
+
+	$(function (){
+		//绑定定时器开始操作到提交按钮
+		$('input[type=submit]').click(function () {
+			//启动上传进度查询定时器
+			uploadProcessTimer = window.setInterval(getFileUploadProcess, 20);
+		})
+	});
+
+	//获取文件上传进度
+	function getFileUploadProcess() {
+		$.get('/upload/getFileProcessServlet', function(data) {
+			$('#fileUploadProcess').html(data);
+		});
+	}
+
+	//上传完成后，由iframe返回脚本自动调用
+	function fileUploadCallBack(res) {
+		//清除定时器
+		if(uploadProcessTimer) {
+			window.clearInterval(uploadProcessTimer);
+		}
+		var message = res['message'];
+		var code = res['code'];
+		if(code != 200) {
+			$('#fileUploadProcess').html('0%');
+		}
+		alert(message);
+	}
+
+	</script>
+</head>
+<body>
+<h2>上传文件1</h2>
+
+用户信息：  <br/>
+<form id="testForm" action="/upload/uploadServlet" method="post" enctype="multipart/form-data" target="iframeUpload">
+	姓名：<input name="name" type="text"> <br/>
+	附件1：<input name="file1" type="file" > <br/>
+	附件2：<input name="file2" type="file" > <br/>
+	<br><br>
+	<input type="submit" value="提交" ><br/>
+</form>
+上传进度：<label id="fileUploadProcess"></label>
+<iframe name="iframeUpload" src="" width="350" height="35" frameborder=0  SCROLLING="no" style="display:NONE"></iframe>   
+</body>
+</html>

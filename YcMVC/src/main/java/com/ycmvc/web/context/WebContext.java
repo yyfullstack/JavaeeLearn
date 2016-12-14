@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 public class WebContext {
 
     public static ThreadLocal<HttpServletRequest> requestHodler = new ThreadLocal<HttpServletRequest>();
+
     public static ThreadLocal<HttpServletResponse> responseHodler = new ThreadLocal<HttpServletResponse>();
 
     public HttpServletRequest getRequest() {

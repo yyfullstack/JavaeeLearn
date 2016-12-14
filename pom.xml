@@ -12,6 +12,9 @@
         <module>jdbc_study</module>
         <module>MySpringMvc</module>
         <module>YcMVC</module>
+        <module><![CDATA[FileU&D]]></module>
+        <module>FileUploadAndDownload</module>
+        <module>SendMail</module>
     </modules>
     <name>JavaeeLearn Maven Webapp</name>
     <url>http://maven.apache.org</url>

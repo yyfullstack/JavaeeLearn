@@ -15,6 +15,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/FileU&amp;D/pom.xml" />
         <option value="$PROJECT_DIR$/MySpringMvc/pom.xml" />
       </set>
     </option>
