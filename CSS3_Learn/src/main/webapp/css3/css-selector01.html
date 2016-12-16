@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css 属性选择器</title>
+    <style type="text/css">
+
+
+        /*demo1*/
+        /*
+        [name=css] {
+            background: #666666;
+        }
+        */
+
+        /*demo2*/
+        /*
+        [name|=css] {
+            background: #666666;
+        }
+
+        [name|=me] {
+            background: #999999;
+        }*/
+
+        /*demo3*/
+        /*[name^=css] {
+            background: #666666;
+        }*/
+
+        /*demo4*/
+        [name*=css] {
+            background: #666666;
+        }
+    </style>
+</head>
+<body>
+<p name="css">Wsscat!</p>
+<p name="css-ab">Asw!</p>
+<p name="css -ab">Asw!</p>
+<p name="css-cd">cat!</p>
+<p name="cd-css">me!</p>
+<p name="me">Hi!</p>
+<p name="em">nihao!</p>
+</body>
+</html>
