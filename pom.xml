@@ -10,13 +10,10 @@
         <module>CSS3_Learn</module>
         <module>JSPTag</module>
         <module>jdbc_study</module>
-        <module>MySpringMvc</module>
         <module>YcMVC</module>
-        <module><![CDATA[FileU&D]]></module>
         <module>FileUploadAndDownload</module>
-        <module>SendMail</module>
-        <module>SendEmail</module>
         <module>MyJavaMail</module>
+        <module>Smart4J</module>
     </modules>
     <name>JavaeeLearn Maven Webapp</name>
     <url>http://maven.apache.org</url>

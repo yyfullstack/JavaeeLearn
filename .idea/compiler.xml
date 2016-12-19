@@ -30,6 +30,7 @@
         <module name="Login_MVC" />
         <module name="MyJavaMail" />
         <module name="SendMail" />
+        <module name="Smart4J" />
         <module name="YcMVC" />
       </profile>
     </annotationProcessing>
@@ -45,6 +46,7 @@
       <module name="MySpringMVC" target="1.5" />
       <module name="SendEmail" target="1.5" />
       <module name="SendMail" target="1.5" />
+      <module name="Smart4J" target="1.6" />
       <module name="YcMVC" target="1.5" />
     </bytecodeTargetLevel>
   </component>
