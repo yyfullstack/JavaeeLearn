@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串的扩展</title>
+</head>
+<body>
+<script type="text/javascript">
+    //1. 字符的Unicode表示法
+
+//    var a = "\u0061";
+//    console.log(a); // a
+//
+//
+//    console.log("\uD842\uDF87");//₻
+//
+//    console.log("\u20BB7"); //₻7
+//
+//
+//    console.log("\u{20BB7}");//𠮷
+//
+//    console.log("\u{41}\u{42}\u{43}"); //ABC
+//
+//    let hello = 123;
+//    console.log(hell\u{6f}); //123
+//
+//    console.log('\u{1F680}' === '\uD83D\uDE80'); //true
+//
+//    console.log('\z' === 'z');  //true
+//    console.log('\172' === 'z'); //true
+//    console.log('\x7A' === 'z'); //true
+//    console.log('\u007A' === 'z'); //true
+//    console.log('\u{7A}' === 'z'); //true
+
+    //2.codePointAt();
+
+//    var s = "𠮷";
+//
+//    console.log(s.length); //2
+//    console.log(s.charAt(0)); //�
+//    console.log(s.charAt(1)); //�
+//    console.log(s.charCodeAt(0));//55362
+//    console.log(s.charCodeAt(1)); //57271
+//
+//    var s = '𠮷a';
+//    console.log(s.codePointAt(0).toString(16)); //20bb7
+//    console.log(s.charCodeAt(2).toString(16)); //61
+//
+//    for(let ch of s){
+//        console.log(ch.codePointAt(0).toString(16));
+//    }
+//
+//    function is32Bit(c) {
+//        return c.codePointAt(0) > 0xFFFF;
+//    }
+
+    //3.String.fromCodePoint();
+    //ES5提供String.fromCharCode方法，用于从码点返回对应字符
+//    位的UTF-16字符（Unicode编号大于0xFFFF）。
+//    ES6提供了String.fromCodePoint方法，可以识别0xFFFF的字符，
+    // 弥补了String.fromCharCode方法的不足。在作用上，
+    // 正好与codePointAt方法相反。
+
+//    console.log(String.fromCodePoint(0x20BB7)); //𠮷
+//
+//    console.log(String.fromCodePoint(0x78, 0x1F680, 0x79)); //x\uD83D\uDE80y
+
+
+    //4.字符串的遍历器接口
+//但是for循环会认为它包含两个字符（都不可打印），
+    // 而for...of循环会正确识别出这一个字符。
+//    for(let codePoint of 'foo')
+//    {
+//        console.log(codePoint); //f o o
+//    }
+//
+//    var text = String.fromCodePoint(0x20BB7);
+//    for(let i=0;i<text.length;i++){
+//        console.log(text[i]);//� �
+//    }
+//
+//    for(let i of text){
+//        console.log(i); //𠮷
+//    }
+    //5.at()
+    console.log('abc'.charAt(0));
+    console.log('𠮷'.charAt(0));
+
+    console.log('abc'.at(0));
+    console.log('𠮷'.at(0));
+
+</script>
+</body>
+</html>
